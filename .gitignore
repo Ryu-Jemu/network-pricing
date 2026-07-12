@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+# experiment artefacts are not published (code-only policy)
+models/
+results/
+training_logs/
+*.zip
+*.html

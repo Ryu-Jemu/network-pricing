@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the associated papers."
+title: "SLA-Constrained Dynamic Pricing for 5G Network Slicing via Constrained Reinforcement Learning"
+authors:
+  - family-names: "Ryu"
+    given-names: "Je-Mu"
+    affiliation: "Dept. of Computer Science, Hanyang University ERICA"
+license: MIT
+references:
+  - type: conference-paper
+    title: "강화학습 기반 5G 네트워크 슬라이싱의 Three-Part Tariff 동적 가격 최적화 (Dynamic Pricing Optimization for 5G Network Slicing via Three-Part Tariff using Reinforcement Learning)"
+    authors:
+      - family-names: "Ryu"
+        given-names: "Je-Mu"
+      - family-names: "Jeon"
+        given-names: "Sang-Woon"
+    collection-title: "한국정보처리학회 춘계학술발표대회 (ASK 2026)"
+    year: 2026
