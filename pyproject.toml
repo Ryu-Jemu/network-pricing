@@ -21,6 +21,12 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=7.4"]
+# Interactive training progress bar (sb3 ProgressBarCallback). Optional:
+# when absent, training silently runs without the bar (see src/train/progress.py).
+progress = ["tqdm>=4.60", "rich>=12"]
+# Paper equation/figure rendering scripts (also require a LaTeX install:
+# pdflatex + pdftoppm) — not needed to run the simulation or tests.
+figures = ["Pillow>=9"]
 
 [tool.setuptools]
 packages = ["src", "src.env", "src.train", "src.scripts"]

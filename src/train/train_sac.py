@@ -11,6 +11,7 @@ from stable_baselines3.common.monitor import Monitor
 
 from src.env.network_slicing_env import NetworkSlicingEnv
 from src.train.config import ENV_CONFIG, SAC_CONFIG, EVAL_CONFIG
+from src.train.progress import default_progress_bar
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 RESULTS_DIR = os.path.join(ROOT, "results")
@@ -109,7 +110,8 @@ def train_sac(seed=42, total_timesteps=None):
     )
 
     callback = EpisodeLogCallback()
-    model.learn(total_timesteps=ts, callback=callback, progress_bar=True)
+    model.learn(total_timesteps=ts, callback=callback,
+                progress_bar=default_progress_bar())
 
     return model, callback
 

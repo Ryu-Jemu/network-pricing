@@ -28,6 +28,16 @@ pip install -r requirements.txt     # 고정 버전 (실험 재현용)
 pip install -e .                    # 범위 버전
 ```
 
+선택적 extras (시뮬레이션·테스트 실행에는 불필요):
+
+```bash
+pip install -e ".[progress]"   # 학습 시 진행바 (tqdm·rich) — 대화형 터미널에서만 표시
+pip install -e ".[figures]"    # 논문 수식/표 렌더링 (Pillow, 별도 LaTeX: pdflatex·pdftoppm 필요)
+```
+
+진행바는 위 extras가 설치되고 stdout이 TTY일 때만 활성화되며, 없으면 학습은
+그대로 진행되고 표시만 생략됩니다.
+
 ## 테스트
 
 ```bash

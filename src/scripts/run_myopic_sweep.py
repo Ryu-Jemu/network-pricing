@@ -16,6 +16,7 @@ from stable_baselines3.common.monitor import Monitor
 
 from src.env.network_slicing_env import NetworkSlicingEnv
 from src.train.config import MYOPIC_PPO_CONFIG, EVAL_CONFIG
+from src.train.progress import default_progress_bar
 from src.train.train_sac import EpisodeLogCallback
 from src.scripts.run_churn_sweep import (
     make_env_config,
@@ -52,7 +53,8 @@ def train_myopic_ppo_custom(env_config, seed=42):
     )
 
     callback = EpisodeLogCallback()
-    model.learn(total_timesteps=TOTAL_TIMESTEPS, callback=callback, progress_bar=True)
+    model.learn(total_timesteps=TOTAL_TIMESTEPS, callback=callback,
+                progress_bar=default_progress_bar())
 
     return model, callback
 

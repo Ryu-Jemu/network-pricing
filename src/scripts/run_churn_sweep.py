@@ -16,6 +16,7 @@ from stable_baselines3.common.monitor import Monitor
 
 from src.env.network_slicing_env import NetworkSlicingEnv
 from src.train.config import ENV_CONFIG, PPO_CONFIG, EVAL_CONFIG, ORACLE_GRID
+from src.train.progress import default_progress_bar
 from src.train.train_sac import EpisodeLogCallback
 from src.train.run_multi_seed import run_static_oracle
 
@@ -61,7 +62,8 @@ def train_ppo_custom(env_config, seed=42, total_timesteps=None):
     )
 
     callback = EpisodeLogCallback()
-    model.learn(total_timesteps=ts, callback=callback, progress_bar=True)
+    model.learn(total_timesteps=ts, callback=callback,
+                progress_bar=default_progress_bar())
 
     return model, callback
 

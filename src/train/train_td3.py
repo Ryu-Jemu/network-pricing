@@ -10,6 +10,7 @@ from stable_baselines3.common.noise import NormalActionNoise
 
 from src.env.network_slicing_env import NetworkSlicingEnv
 from src.train.config import ENV_CONFIG, TD3_CONFIG
+from src.train.progress import default_progress_bar
 from src.train.train_sac import EpisodeLogCallback, evaluate_policy
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
@@ -42,7 +43,8 @@ def train_td3(seed=42, total_timesteps=None):
     )
 
     callback = EpisodeLogCallback()
-    model.learn(total_timesteps=ts, callback=callback, progress_bar=True)
+    model.learn(total_timesteps=ts, callback=callback,
+                progress_bar=default_progress_bar())
     return model, callback
 
 

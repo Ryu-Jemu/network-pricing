@@ -33,6 +33,7 @@ from stable_baselines3.common.callbacks import BaseCallback
 from stable_baselines3.common.monitor import Monitor
 
 from src.env.network_slicing_env import NetworkSlicingEnv
+from src.train.progress import default_progress_bar
 from src.train.config import ENV_CONFIG, PPO_CONFIG
 
 
@@ -361,7 +362,8 @@ def train_ppo_lagrangian(
         f"{'='*60}"
     )
     model.learn(
-        total_timesteps=ts, callback=callback, progress_bar=True
+        total_timesteps=ts, callback=callback,
+        progress_bar=default_progress_bar()
     )
     return model, callback, lam_state
 
